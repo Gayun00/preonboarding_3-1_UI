@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import * as S from "./styled";
 
 function FAQItem({ qa, aw }) {
-  console.log(aw);
   function onClickButton() {
     setIsOpened(!isOpened);
   }

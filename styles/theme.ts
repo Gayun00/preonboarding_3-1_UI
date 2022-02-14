@@ -20,4 +20,7 @@ export const theme: DefaultTheme = {
     weightM: "500",
     weightS: "400",
   },
+  margin: {
+    m: "9px",
+  },
 };

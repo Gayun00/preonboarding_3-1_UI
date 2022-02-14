@@ -1,14 +1,39 @@
 import axios from "axios";
 import { GetStaticProps } from "next";
-import React, { useEffect } from "react";
+import Link from "next/link";
+import { Router, useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 import CustomerCenter from "../components/CustomerCenter";
 
-function customerCenter() {
+function CustomerCenterPage() {
+  const [brands, setBrands] = useState([]);
+  const router = useRouter();
+
+  async function fetchProductList(categoryId = 1) {
+    const res = await axios.get(
+      `https://api2.ncnc.app/con-category1s/67/nested`
+    );
+    // setCategoryId(res.data.qas);
+    setBrands(res.data.conCategory1.conCategory2s);
+    // const selectedBrand = brands.filter((brand) => {
+    //   brand.id ===
+    // })
+  }
+
+  useEffect(() => {
+    fetchProductList();
+  }, []);
+
   return (
     <>
       <CustomerCenter />
+      {/* <button onClick={onMove}>sdf</button> */}
+
+      <Link href="/list/147">
+        <a> list</a>
+      </Link>
     </>
   );
 }
 
-export default customerCenter;
+export default CustomerCenterPage;

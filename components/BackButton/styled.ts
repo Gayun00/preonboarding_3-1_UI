@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Button = styled.button`
   position: absolute;
-  left: 0;
+  left: ${({ theme }) => theme.margin.L};
   width: 12px;
   height: 12px;
   border: none;

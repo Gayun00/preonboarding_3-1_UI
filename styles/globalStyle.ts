@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    width: 375px;
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
     color: ${({ theme }) => theme.color.black};

@@ -12,6 +12,7 @@ export const Title = styled.h1``;
 export const ProductCounter = styled.div`
   display: flex;
   align-items: center;
+  padding: ${({ theme }) => theme.margin.L};
   height: ${({ theme }) => theme.size.blockHeight};
   background-color: ${({ theme }) => theme.color.white};
   color: ${({ theme }) => theme.color.textGray};
@@ -19,5 +20,6 @@ export const ProductCounter = styled.div`
 export const ProductCount = styled.p``;
 export const ProductList = styled.ul`
   margin-top: ${({ theme }) => theme.margin.m};
+  padding: ${({ theme }) => theme.margin.L};
   background-color: ${({ theme }) => theme.color.white};
 `;

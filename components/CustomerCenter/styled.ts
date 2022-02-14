@@ -47,6 +47,13 @@ export const FAQButton = styled.button`
   }
 `;
 
+export const ClickedFAQButton = styled.button`
+  width: 169px;
+  height: 40px;
+  border-bottom: 2px solid ${({ theme }) => theme.color.red};
+  color: ${({ theme }) => theme.color.red};
+`;
+
 export const FAQList = styled.ul`
   background-color: ${({ theme }) => theme.color.white};
 `;

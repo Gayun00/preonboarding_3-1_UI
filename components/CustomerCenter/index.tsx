@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import { GetStaticProps } from "next";
 import React, { useEffect, useState } from "react";
 import FAQItem from "../FAQItem";
@@ -18,19 +18,28 @@ function CustomerCenter() {
   // useEffect(() => {
   //   console.log(getStaticProps());
   // }, []);
-  interface QaTypes {
-    id: number;
-    key: string[];
-    name: string[];
-  }
+
+  // interface QaTypes {
+  //   id: number;
+  //   key: string[];
+  //   name: string[];
+  // }
   const [qaTypes, setQaTypes] = useState([]);
+  const [qas, setQas] = useState([]);
+
   async function fetchFAQTypes() {
     const res = await axios.get("https://api2.ncnc.app/qa-types");
     setQaTypes(res.data.qaTypes);
   }
+  async function fetchFAQ() {
+    const res = await axios.get("https://api2.ncnc.app/qas?qaTypeId=1");
+    setQas(res.data.qas);
+    console.log(res.data.qas);
+  }
 
   useEffect(() => {
     fetchFAQTypes();
+    fetchFAQ();
   }, []);
 
   return (
@@ -52,7 +61,9 @@ function CustomerCenter() {
         </S.FAQButtonWrapper>
       </S.FAQTitleWrapper>
       <S.FAQList>
-        <FAQItem />
+        {qas.map((qa) => (
+          <FAQItem key={qa.id} qa={qa.question} />
+        ))}
       </S.FAQList>
     </S.Wrapper>
   );

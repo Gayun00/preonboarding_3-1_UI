@@ -18,7 +18,18 @@ export const PageTitle = styled.h1`
 `;
 
 export const Info = styled.section`
+  padding: ${({ theme }) => theme.margin.L};
+  padding-top: calc(${({ theme }) => theme.margin.L}*2);
+  height: 160px;
   background-color: ${({ theme }) => theme.color.white};
+`;
+
+export const InfoTitle = styled.p`
+  margin-bottom: ${({ theme }) => theme.margin.m};
+`;
+
+export const InfoText = styled.p`
+  margin-bottom: 3px;
 `;
 
 export const FAQTitleWrapper = styled.div`
@@ -33,15 +44,18 @@ export const FAQTitle = styled.div`
 
 export const FAQButtonWrapper = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 `;
 
 export const FAQButton = styled.button`
   width: 169px;
   height: 40px;
+  margin: 0 ${({ theme }) => theme.margin.L} 0 ${({ theme }) => theme.margin.L};
   color: ${({ theme }) => theme.color.textGray};
 
   &:hover {
+    margin: 0 ${({ theme }) => theme.margin.L} 0
+      ${({ theme }) => theme.margin.L};
     border-bottom: 2px solid ${({ theme }) => theme.color.red};
     color: ${({ theme }) => theme.color.red};
   }
@@ -50,6 +64,7 @@ export const FAQButton = styled.button`
 export const ClickedFAQButton = styled.button`
   width: 169px;
   height: 40px;
+  margin: 0 ${({ theme }) => theme.margin.L} 0 ${({ theme }) => theme.margin.L};
   border-bottom: 2px solid ${({ theme }) => theme.color.red};
   color: ${({ theme }) => theme.color.red};
 `;

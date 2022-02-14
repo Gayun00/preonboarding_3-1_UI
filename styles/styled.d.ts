@@ -1,3 +1,4 @@
+import { StringOptions } from "sass";
 import "styled-components";
 declare module "styled-components" {
   export interface DefaultTheme {
@@ -23,6 +24,7 @@ declare module "styled-components" {
     };
     margin: {
       m: string;
+      L: string;
     };
   }
 }

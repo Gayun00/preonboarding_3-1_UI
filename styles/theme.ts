@@ -22,5 +22,6 @@ export const theme: DefaultTheme = {
   },
   margin: {
     m: "9px",
+    L: "17px",
   },
 };

@@ -56,9 +56,9 @@ function CustomerCenter() {
         <S.PageTitle>고객센터</S.PageTitle>
       </S.Header>
       <S.Info>
-        <p>상담시간 안내</p>
-        <p>평일 10:00 ~ 18: 00</p>
-        <p>점심시간 12:30 ~ 13:30 /토, 일 공휴일 휴무</p>
+        <S.InfoTitle>상담시간 안내</S.InfoTitle>
+        <S.InfoText>평일 10:00 ~ 18: 00</S.InfoText>
+        <S.InfoText>점심시간 12:30 ~ 13:30 /토, 일 공휴일 휴무</S.InfoText>
       </S.Info>
       <S.FAQTitleWrapper>
         <S.FAQTitle>자주 묻는 질문</S.FAQTitle>

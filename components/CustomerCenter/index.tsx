@@ -26,15 +26,23 @@ function CustomerCenter() {
   // }
   const [qaTypes, setQaTypes] = useState([]);
   const [qas, setQas] = useState([]);
+  const [clickedType, setClickedType] = useState(1);
 
   async function fetchFAQTypes() {
     const res = await axios.get("https://api2.ncnc.app/qa-types");
     setQaTypes(res.data.qaTypes);
   }
-  async function fetchFAQ() {
-    const res = await axios.get("https://api2.ncnc.app/qas?qaTypeId=1");
+  async function fetchFAQ(qaTypeId = 1) {
+    const res = await axios.get(
+      `https://api2.ncnc.app/qas?qaTypeId=${qaTypeId}`
+    );
     setQas(res.data.qas);
     console.log(res.data.qas);
+  }
+
+  function onClickFAQType(typeId) {
+    fetchFAQ(typeId);
+    setClickedType(typeId);
   }
 
   useEffect(() => {
@@ -55,9 +63,23 @@ function CustomerCenter() {
       <S.FAQTitleWrapper>
         <S.FAQTitle>자주 묻는 질문</S.FAQTitle>
         <S.FAQButtonWrapper>
-          {qaTypes.map((qaType) => (
-            <S.FAQButton key={qaType.id}>{qaType.name}</S.FAQButton>
-          ))}
+          {qaTypes.map((qaType) =>
+            qaType.id === clickedType ? (
+              <S.ClickedFAQButton
+                key={qaType.id}
+                onClick={() => onClickFAQType(qaType.id)}
+              >
+                {qaType.name}
+              </S.ClickedFAQButton>
+            ) : (
+              <S.FAQButton
+                key={qaType.id}
+                onClick={() => onClickFAQType(qaType.id)}
+              >
+                {qaType.name}
+              </S.FAQButton>
+            )
+          )}
         </S.FAQButtonWrapper>
       </S.FAQTitleWrapper>
       <S.FAQList>

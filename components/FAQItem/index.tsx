@@ -1,22 +1,26 @@
 import React, { useState } from "react";
 import * as S from "./styled";
 
-function FAQItem({ qa }) {
+function FAQItem({ qa, aw }) {
+  console.log(aw);
   function onClickButton() {
     setIsOpened(!isOpened);
   }
   const [isOpened, setIsOpened] = useState(false);
   return (
-    <S.Wrapper>
-      <S.TextWrapper>
-        <S.Q>Q.</S.Q>
-        <S.Question>{qa}</S.Question>
-      </S.TextWrapper>
-      <S.Button
-        onClick={onClickButton}
-        src={`images/${isOpened ? "shrink.svg" : "spread.svg"}`}
-      ></S.Button>
-    </S.Wrapper>
+    <>
+      <S.QuestionWrapper>
+        <S.TextWrapper>
+          <S.Q>Q.</S.Q>
+          <S.Question>{qa}</S.Question>
+        </S.TextWrapper>
+        <S.Button
+          onClick={onClickButton}
+          src={`images/${isOpened ? "shrink.svg" : "spread.svg"}`}
+        ></S.Button>
+      </S.QuestionWrapper>
+      {isOpened && <S.Answer>{aw}</S.Answer>}
+    </>
   );
 }
 

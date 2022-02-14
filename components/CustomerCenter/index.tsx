@@ -84,7 +84,7 @@ function CustomerCenter() {
       </S.FAQTitleWrapper>
       <S.FAQList>
         {qas.map((qa) => (
-          <FAQItem key={qa.id} qa={qa.question} />
+          <FAQItem key={qa.id} qa={qa.question} aw={qa.answer} />
         ))}
       </S.FAQList>
     </S.Wrapper>

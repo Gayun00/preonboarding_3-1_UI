@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.li`
+export const QuestionWrapper = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;

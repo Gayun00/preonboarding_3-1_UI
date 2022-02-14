@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import * as S from "./styled";
 
-function MyPage() {
+function MyPage({ isSideBarOpened }) {
+  console.log(isSideBarOpened);
+  const sideBarRef = useRef(null);
+  useEffect(() => {
+    if (sideBarRef.current) {
+      if (isSideBarOpened) {
+        console.log("d");
+        sideBarRef.current.style.transform = "translateX(0)";
+      } else {
+        sideBarRef.current.style.transform = "translateX(-100%)";
+      }
+    }
+  }, [isSideBarOpened]);
+
   return (
-    <S.Wrapper>
+    <S.Wrapper ref={sideBarRef}>
       <S.Header>
         <S.PageTitle>마이페이지</S.PageTitle>
       </S.Header>

@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
+  position: fixed;
+  top: 0;
   width: 375px;
   height: 812px;
+  transform: translateX(-100%);
+  transition: all 0.1s ease-in;
 `;
 
 export const Header = styled.div`

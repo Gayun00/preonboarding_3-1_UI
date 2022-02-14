@@ -4,10 +4,13 @@ import Link from "next/link";
 import { Router, useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import CustomerCenter from "../components/CustomerCenter";
+import Hamburger from "../components/Hamburger";
+import MyPage from "../components/MyPage";
 
 function CustomerCenterPage() {
   const [brands, setBrands] = useState([]);
   const router = useRouter();
+  const [isSideBarOpened, setIsSideBarOpened] = useState(false);
 
   async function fetchProductList(categoryId = 1) {
     const res = await axios.get(
